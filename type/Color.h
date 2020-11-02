@@ -6,3 +6,10 @@
 #define LEARN_CPP_NENUM_H
 
 #endif //LEARN_CPP_NENUM_H
+
+enum Color
+{
+    RED,
+    BLACK,
+    GREEN
+};

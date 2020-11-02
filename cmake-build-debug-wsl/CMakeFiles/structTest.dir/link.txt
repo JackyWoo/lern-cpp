@@ -1,0 +1,1 @@
+/usr/bin/g++  -g   CMakeFiles/structTest.dir/type/StructTest.cpp.o CMakeFiles/structTest.dir/type/Uu.cpp.o  -o structTest 

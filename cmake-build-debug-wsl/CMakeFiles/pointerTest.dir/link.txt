@@ -1,0 +1,1 @@
+/usr/bin/g++  -g   CMakeFiles/pointerTest.dir/type/Pointer.cpp.o  -o pointerTest 
