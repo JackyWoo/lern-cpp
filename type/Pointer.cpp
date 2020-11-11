@@ -45,4 +45,7 @@ int main()
     // delete只能释放new分配的内存
     delete pi;
 
+
+    char* str;
+    cout<< *str<<endl;
 }

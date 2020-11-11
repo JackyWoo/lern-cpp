@@ -53,6 +53,8 @@ CMAKE_BINARY_DIR = /mnt/d/project/my/lern-cpp/cmake-build-debug-wsl
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/ArrayTest.dir/all
+all: CMakeFiles/MemCommitTest.dir/all
 all: CMakeFiles/pointerTest.dir/all
 all: CMakeFiles/structTest.dir/all
 all: CMakeFiles/TypeTest.dir/all
@@ -67,6 +69,8 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/ArrayTest.dir/clean
+clean: CMakeFiles/MemCommitTest.dir/clean
 clean: CMakeFiles/pointerTest.dir/clean
 clean: CMakeFiles/structTest.dir/clean
 clean: CMakeFiles/TypeTest.dir/clean
@@ -76,13 +80,67 @@ clean: CMakeFiles/Hellocpp.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/ArrayTest.dir
+
+# All Build rule for target.
+CMakeFiles/ArrayTest.dir/all:
+	$(MAKE) -f CMakeFiles/ArrayTest.dir/build.make CMakeFiles/ArrayTest.dir/depend
+	$(MAKE) -f CMakeFiles/ArrayTest.dir/build.make CMakeFiles/ArrayTest.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/project/my/lern-cpp/cmake-build-debug-wsl/CMakeFiles --progress-num=1,2 "Built target ArrayTest"
+.PHONY : CMakeFiles/ArrayTest.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/ArrayTest.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/project/my/lern-cpp/cmake-build-debug-wsl/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ArrayTest.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/project/my/lern-cpp/cmake-build-debug-wsl/CMakeFiles 0
+.PHONY : CMakeFiles/ArrayTest.dir/rule
+
+# Convenience name for target.
+ArrayTest: CMakeFiles/ArrayTest.dir/rule
+
+.PHONY : ArrayTest
+
+# clean rule for target.
+CMakeFiles/ArrayTest.dir/clean:
+	$(MAKE) -f CMakeFiles/ArrayTest.dir/build.make CMakeFiles/ArrayTest.dir/clean
+.PHONY : CMakeFiles/ArrayTest.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/MemCommitTest.dir
+
+# All Build rule for target.
+CMakeFiles/MemCommitTest.dir/all:
+	$(MAKE) -f CMakeFiles/MemCommitTest.dir/build.make CMakeFiles/MemCommitTest.dir/depend
+	$(MAKE) -f CMakeFiles/MemCommitTest.dir/build.make CMakeFiles/MemCommitTest.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/project/my/lern-cpp/cmake-build-debug-wsl/CMakeFiles --progress-num=5,6 "Built target MemCommitTest"
+.PHONY : CMakeFiles/MemCommitTest.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/MemCommitTest.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/project/my/lern-cpp/cmake-build-debug-wsl/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/MemCommitTest.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/project/my/lern-cpp/cmake-build-debug-wsl/CMakeFiles 0
+.PHONY : CMakeFiles/MemCommitTest.dir/rule
+
+# Convenience name for target.
+MemCommitTest: CMakeFiles/MemCommitTest.dir/rule
+
+.PHONY : MemCommitTest
+
+# clean rule for target.
+CMakeFiles/MemCommitTest.dir/clean:
+	$(MAKE) -f CMakeFiles/MemCommitTest.dir/build.make CMakeFiles/MemCommitTest.dir/clean
+.PHONY : CMakeFiles/MemCommitTest.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/pointerTest.dir
 
 # All Build rule for target.
 CMakeFiles/pointerTest.dir/all:
 	$(MAKE) -f CMakeFiles/pointerTest.dir/build.make CMakeFiles/pointerTest.dir/depend
 	$(MAKE) -f CMakeFiles/pointerTest.dir/build.make CMakeFiles/pointerTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/project/my/lern-cpp/cmake-build-debug-wsl/CMakeFiles --progress-num=7,8 "Built target pointerTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/project/my/lern-cpp/cmake-build-debug-wsl/CMakeFiles --progress-num=11,12 "Built target pointerTest"
 .PHONY : CMakeFiles/pointerTest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -109,7 +167,7 @@ CMakeFiles/pointerTest.dir/clean:
 CMakeFiles/structTest.dir/all:
 	$(MAKE) -f CMakeFiles/structTest.dir/build.make CMakeFiles/structTest.dir/depend
 	$(MAKE) -f CMakeFiles/structTest.dir/build.make CMakeFiles/structTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/project/my/lern-cpp/cmake-build-debug-wsl/CMakeFiles --progress-num=9,10,11 "Built target structTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/project/my/lern-cpp/cmake-build-debug-wsl/CMakeFiles --progress-num=13,14,15 "Built target structTest"
 .PHONY : CMakeFiles/structTest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -136,7 +194,7 @@ CMakeFiles/structTest.dir/clean:
 CMakeFiles/TypeTest.dir/all:
 	$(MAKE) -f CMakeFiles/TypeTest.dir/build.make CMakeFiles/TypeTest.dir/depend
 	$(MAKE) -f CMakeFiles/TypeTest.dir/build.make CMakeFiles/TypeTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/project/my/lern-cpp/cmake-build-debug-wsl/CMakeFiles --progress-num=3,4 "Built target TypeTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/project/my/lern-cpp/cmake-build-debug-wsl/CMakeFiles --progress-num=7,8 "Built target TypeTest"
 .PHONY : CMakeFiles/TypeTest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -163,7 +221,7 @@ CMakeFiles/TypeTest.dir/clean:
 CMakeFiles/helloworld.dir/all:
 	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/depend
 	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/project/my/lern-cpp/cmake-build-debug-wsl/CMakeFiles --progress-num=5,6 "Built target helloworld"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/project/my/lern-cpp/cmake-build-debug-wsl/CMakeFiles --progress-num=9,10 "Built target helloworld"
 .PHONY : CMakeFiles/helloworld.dir/all
 
 # Build rule for subdir invocation for target.
@@ -190,7 +248,7 @@ CMakeFiles/helloworld.dir/clean:
 CMakeFiles/Hellocpp.dir/all:
 	$(MAKE) -f CMakeFiles/Hellocpp.dir/build.make CMakeFiles/Hellocpp.dir/depend
 	$(MAKE) -f CMakeFiles/Hellocpp.dir/build.make CMakeFiles/Hellocpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/project/my/lern-cpp/cmake-build-debug-wsl/CMakeFiles --progress-num=1,2 "Built target Hellocpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/project/my/lern-cpp/cmake-build-debug-wsl/CMakeFiles --progress-num=3,4 "Built target Hellocpp"
 .PHONY : CMakeFiles/Hellocpp.dir/all
 
 # Build rule for subdir invocation for target.

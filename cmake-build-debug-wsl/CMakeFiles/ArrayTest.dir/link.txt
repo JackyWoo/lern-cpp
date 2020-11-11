@@ -1,0 +1,1 @@
+/usr/bin/g++  -g   CMakeFiles/ArrayTest.dir/type/ArrayTest.cpp.o  -o ArrayTest 

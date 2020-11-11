@@ -111,6 +111,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named ArrayTest
+
+# Build rule for target.
+ArrayTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ArrayTest
+.PHONY : ArrayTest
+
+# fast build rule for target.
+ArrayTest/fast:
+	$(MAKE) -f CMakeFiles/ArrayTest.dir/build.make CMakeFiles/ArrayTest.dir/build
+.PHONY : ArrayTest/fast
+
+#=============================================================================
+# Target rules for targets named MemCommitTest
+
+# Build rule for target.
+MemCommitTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 MemCommitTest
+.PHONY : MemCommitTest
+
+# fast build rule for target.
+MemCommitTest/fast:
+	$(MAKE) -f CMakeFiles/MemCommitTest.dir/build.make CMakeFiles/MemCommitTest.dir/build
+.PHONY : MemCommitTest/fast
+
+#=============================================================================
 # Target rules for targets named pointerTest
 
 # Build rule for target.
@@ -229,6 +255,60 @@ hello/HelloWorld.cpp.s:
 	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/hello/HelloWorld.cpp.s
 .PHONY : hello/HelloWorld.cpp.s
 
+mem/MemCommitTest.o: mem/MemCommitTest.cpp.o
+
+.PHONY : mem/MemCommitTest.o
+
+# target to build an object file
+mem/MemCommitTest.cpp.o:
+	$(MAKE) -f CMakeFiles/MemCommitTest.dir/build.make CMakeFiles/MemCommitTest.dir/mem/MemCommitTest.cpp.o
+.PHONY : mem/MemCommitTest.cpp.o
+
+mem/MemCommitTest.i: mem/MemCommitTest.cpp.i
+
+.PHONY : mem/MemCommitTest.i
+
+# target to preprocess a source file
+mem/MemCommitTest.cpp.i:
+	$(MAKE) -f CMakeFiles/MemCommitTest.dir/build.make CMakeFiles/MemCommitTest.dir/mem/MemCommitTest.cpp.i
+.PHONY : mem/MemCommitTest.cpp.i
+
+mem/MemCommitTest.s: mem/MemCommitTest.cpp.s
+
+.PHONY : mem/MemCommitTest.s
+
+# target to generate assembly for a file
+mem/MemCommitTest.cpp.s:
+	$(MAKE) -f CMakeFiles/MemCommitTest.dir/build.make CMakeFiles/MemCommitTest.dir/mem/MemCommitTest.cpp.s
+.PHONY : mem/MemCommitTest.cpp.s
+
+type/ArrayTest.o: type/ArrayTest.cpp.o
+
+.PHONY : type/ArrayTest.o
+
+# target to build an object file
+type/ArrayTest.cpp.o:
+	$(MAKE) -f CMakeFiles/ArrayTest.dir/build.make CMakeFiles/ArrayTest.dir/type/ArrayTest.cpp.o
+.PHONY : type/ArrayTest.cpp.o
+
+type/ArrayTest.i: type/ArrayTest.cpp.i
+
+.PHONY : type/ArrayTest.i
+
+# target to preprocess a source file
+type/ArrayTest.cpp.i:
+	$(MAKE) -f CMakeFiles/ArrayTest.dir/build.make CMakeFiles/ArrayTest.dir/type/ArrayTest.cpp.i
+.PHONY : type/ArrayTest.cpp.i
+
+type/ArrayTest.s: type/ArrayTest.cpp.s
+
+.PHONY : type/ArrayTest.s
+
+# target to generate assembly for a file
+type/ArrayTest.cpp.s:
+	$(MAKE) -f CMakeFiles/ArrayTest.dir/build.make CMakeFiles/ArrayTest.dir/type/ArrayTest.cpp.s
+.PHONY : type/ArrayTest.cpp.s
+
 type/Pointer.o: type/Pointer.cpp.o
 
 .PHONY : type/Pointer.o
@@ -344,7 +424,9 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... ArrayTest"
 	@echo "... rebuild_cache"
+	@echo "... MemCommitTest"
 	@echo "... pointerTest"
 	@echo "... structTest"
 	@echo "... TypeTest"
@@ -356,6 +438,12 @@ help:
 	@echo "... hello/HelloWorld.o"
 	@echo "... hello/HelloWorld.i"
 	@echo "... hello/HelloWorld.s"
+	@echo "... mem/MemCommitTest.o"
+	@echo "... mem/MemCommitTest.i"
+	@echo "... mem/MemCommitTest.s"
+	@echo "... type/ArrayTest.o"
+	@echo "... type/ArrayTest.i"
+	@echo "... type/ArrayTest.s"
 	@echo "... type/Pointer.o"
 	@echo "... type/Pointer.i"
 	@echo "... type/Pointer.s"

@@ -48,6 +48,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/ArrayTest.dir/DependInfo.cmake"
+  "CMakeFiles/MemCommitTest.dir/DependInfo.cmake"
   "CMakeFiles/pointerTest.dir/DependInfo.cmake"
   "CMakeFiles/structTest.dir/DependInfo.cmake"
   "CMakeFiles/TypeTest.dir/DependInfo.cmake"
