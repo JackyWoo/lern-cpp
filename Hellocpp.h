@@ -6,11 +6,9 @@
 #define LERN_CPP_HELLOCPP_H
 
 
-
 class Hellocpp {
 
 };
-
 
 
 #endif //LERN_CPP_HELLOCPP_H
