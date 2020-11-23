@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "ArrayTest"
   "ArrayTest.pdb"
+  "CMakeFiles/ArrayTest.dir/clib/CCTypeTest.cpp.o"
   "CMakeFiles/ArrayTest.dir/type/ArrayTest.cpp.o"
 )
 

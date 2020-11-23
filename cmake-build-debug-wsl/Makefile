@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /mnt/d/project/my/lern-cpp/cmake-build-debug-wsl
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -77,6 +66,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ArrayTest
+# Target rules for targets named pointerTest
 
 # Build rule for target.
-ArrayTest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ArrayTest
-.PHONY : ArrayTest
+pointerTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pointerTest
+.PHONY : pointerTest
 
 # fast build rule for target.
-ArrayTest/fast:
-	$(MAKE) -f CMakeFiles/ArrayTest.dir/build.make CMakeFiles/ArrayTest.dir/build
-.PHONY : ArrayTest/fast
+pointerTest/fast:
+	$(MAKE) -f CMakeFiles/pointerTest.dir/build.make CMakeFiles/pointerTest.dir/build
+.PHONY : pointerTest/fast
 
 #=============================================================================
 # Target rules for targets named MemCommitTest
@@ -137,17 +137,56 @@ MemCommitTest/fast:
 .PHONY : MemCommitTest/fast
 
 #=============================================================================
-# Target rules for targets named pointerTest
+# Target rules for targets named TypeTest
 
 # Build rule for target.
-pointerTest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pointerTest
-.PHONY : pointerTest
+TypeTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TypeTest
+.PHONY : TypeTest
 
 # fast build rule for target.
-pointerTest/fast:
-	$(MAKE) -f CMakeFiles/pointerTest.dir/build.make CMakeFiles/pointerTest.dir/build
-.PHONY : pointerTest/fast
+TypeTest/fast:
+	$(MAKE) -f CMakeFiles/TypeTest.dir/build.make CMakeFiles/TypeTest.dir/build
+.PHONY : TypeTest/fast
+
+#=============================================================================
+# Target rules for targets named ArrayTest
+
+# Build rule for target.
+ArrayTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ArrayTest
+.PHONY : ArrayTest
+
+# fast build rule for target.
+ArrayTest/fast:
+	$(MAKE) -f CMakeFiles/ArrayTest.dir/build.make CMakeFiles/ArrayTest.dir/build
+.PHONY : ArrayTest/fast
+
+#=============================================================================
+# Target rules for targets named FunctionTest
+
+# Build rule for target.
+FunctionTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 FunctionTest
+.PHONY : FunctionTest
+
+# fast build rule for target.
+FunctionTest/fast:
+	$(MAKE) -f CMakeFiles/FunctionTest.dir/build.make CMakeFiles/FunctionTest.dir/build
+.PHONY : FunctionTest/fast
+
+#=============================================================================
+# Target rules for targets named ReferenceTest
+
+# Build rule for target.
+ReferenceTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ReferenceTest
+.PHONY : ReferenceTest
+
+# fast build rule for target.
+ReferenceTest/fast:
+	$(MAKE) -f CMakeFiles/ReferenceTest.dir/build.make CMakeFiles/ReferenceTest.dir/build
+.PHONY : ReferenceTest/fast
 
 #=============================================================================
 # Target rules for targets named structTest
@@ -163,17 +202,17 @@ structTest/fast:
 .PHONY : structTest/fast
 
 #=============================================================================
-# Target rules for targets named TypeTest
+# Target rules for targets named ThreadScheduleTest
 
 # Build rule for target.
-TypeTest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TypeTest
-.PHONY : TypeTest
+ThreadScheduleTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ThreadScheduleTest
+.PHONY : ThreadScheduleTest
 
 # fast build rule for target.
-TypeTest/fast:
-	$(MAKE) -f CMakeFiles/TypeTest.dir/build.make CMakeFiles/TypeTest.dir/build
-.PHONY : TypeTest/fast
+ThreadScheduleTest/fast:
+	$(MAKE) -f CMakeFiles/ThreadScheduleTest.dir/build.make CMakeFiles/ThreadScheduleTest.dir/build
+.PHONY : ThreadScheduleTest/fast
 
 #=============================================================================
 # Target rules for targets named helloworld
@@ -189,6 +228,19 @@ helloworld/fast:
 .PHONY : helloworld/fast
 
 #=============================================================================
+# Target rules for targets named Jill
+
+# Build rule for target.
+Jill: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Jill
+.PHONY : Jill
+
+# fast build rule for target.
+Jill/fast:
+	$(MAKE) -f CMakeFiles/Jill.dir/build.make CMakeFiles/Jill.dir/build
+.PHONY : Jill/fast
+
+#=============================================================================
 # Target rules for targets named Hellocpp
 
 # Build rule for target.
@@ -200,6 +252,32 @@ Hellocpp: cmake_check_build_system
 Hellocpp/fast:
 	$(MAKE) -f CMakeFiles/Hellocpp.dir/build.make CMakeFiles/Hellocpp.dir/build
 .PHONY : Hellocpp/fast
+
+#=============================================================================
+# Target rules for targets named Stock
+
+# Build rule for target.
+Stock: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Stock
+.PHONY : Stock
+
+# fast build rule for target.
+Stock/fast:
+	$(MAKE) -f CMakeFiles/Stock.dir/build.make CMakeFiles/Stock.dir/build
+.PHONY : Stock/fast
+
+#=============================================================================
+# Target rules for targets named externTest
+
+# Build rule for target.
+externTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 externTest
+.PHONY : externTest
+
+# fast build rule for target.
+externTest/fast:
+	$(MAKE) -f CMakeFiles/externTest.dir/build.make CMakeFiles/externTest.dir/build
+.PHONY : externTest/fast
 
 Hellocpp.o: Hellocpp.cpp.o
 
@@ -228,6 +306,33 @@ Hellocpp.cpp.s:
 	$(MAKE) -f CMakeFiles/Hellocpp.dir/build.make CMakeFiles/Hellocpp.dir/Hellocpp.cpp.s
 .PHONY : Hellocpp.cpp.s
 
+clib/CCTypeTest.o: clib/CCTypeTest.cpp.o
+
+.PHONY : clib/CCTypeTest.o
+
+# target to build an object file
+clib/CCTypeTest.cpp.o:
+	$(MAKE) -f CMakeFiles/ArrayTest.dir/build.make CMakeFiles/ArrayTest.dir/clib/CCTypeTest.cpp.o
+.PHONY : clib/CCTypeTest.cpp.o
+
+clib/CCTypeTest.i: clib/CCTypeTest.cpp.i
+
+.PHONY : clib/CCTypeTest.i
+
+# target to preprocess a source file
+clib/CCTypeTest.cpp.i:
+	$(MAKE) -f CMakeFiles/ArrayTest.dir/build.make CMakeFiles/ArrayTest.dir/clib/CCTypeTest.cpp.i
+.PHONY : clib/CCTypeTest.cpp.i
+
+clib/CCTypeTest.s: clib/CCTypeTest.cpp.s
+
+.PHONY : clib/CCTypeTest.s
+
+# target to generate assembly for a file
+clib/CCTypeTest.cpp.s:
+	$(MAKE) -f CMakeFiles/ArrayTest.dir/build.make CMakeFiles/ArrayTest.dir/clib/CCTypeTest.cpp.s
+.PHONY : clib/CCTypeTest.cpp.s
+
 hello/HelloWorld.o: hello/HelloWorld.cpp.o
 
 .PHONY : hello/HelloWorld.o
@@ -255,32 +360,194 @@ hello/HelloWorld.cpp.s:
 	$(MAKE) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/hello/HelloWorld.cpp.s
 .PHONY : hello/HelloWorld.cpp.s
 
-mem/MemCommitTest.o: mem/MemCommitTest.cpp.o
+namespace/Jill.o: namespace/Jill.cpp.o
 
-.PHONY : mem/MemCommitTest.o
+.PHONY : namespace/Jill.o
 
 # target to build an object file
-mem/MemCommitTest.cpp.o:
-	$(MAKE) -f CMakeFiles/MemCommitTest.dir/build.make CMakeFiles/MemCommitTest.dir/mem/MemCommitTest.cpp.o
-.PHONY : mem/MemCommitTest.cpp.o
+namespace/Jill.cpp.o:
+	$(MAKE) -f CMakeFiles/Jill.dir/build.make CMakeFiles/Jill.dir/namespace/Jill.cpp.o
+.PHONY : namespace/Jill.cpp.o
 
-mem/MemCommitTest.i: mem/MemCommitTest.cpp.i
+namespace/Jill.i: namespace/Jill.cpp.i
 
-.PHONY : mem/MemCommitTest.i
+.PHONY : namespace/Jill.i
 
 # target to preprocess a source file
-mem/MemCommitTest.cpp.i:
-	$(MAKE) -f CMakeFiles/MemCommitTest.dir/build.make CMakeFiles/MemCommitTest.dir/mem/MemCommitTest.cpp.i
-.PHONY : mem/MemCommitTest.cpp.i
+namespace/Jill.cpp.i:
+	$(MAKE) -f CMakeFiles/Jill.dir/build.make CMakeFiles/Jill.dir/namespace/Jill.cpp.i
+.PHONY : namespace/Jill.cpp.i
 
-mem/MemCommitTest.s: mem/MemCommitTest.cpp.s
+namespace/Jill.s: namespace/Jill.cpp.s
 
-.PHONY : mem/MemCommitTest.s
+.PHONY : namespace/Jill.s
 
 # target to generate assembly for a file
-mem/MemCommitTest.cpp.s:
-	$(MAKE) -f CMakeFiles/MemCommitTest.dir/build.make CMakeFiles/MemCommitTest.dir/mem/MemCommitTest.cpp.s
-.PHONY : mem/MemCommitTest.cpp.s
+namespace/Jill.cpp.s:
+	$(MAKE) -f CMakeFiles/Jill.dir/build.make CMakeFiles/Jill.dir/namespace/Jill.cpp.s
+.PHONY : namespace/Jill.cpp.s
+
+oop/Invoker.o: oop/Invoker.cpp.o
+
+.PHONY : oop/Invoker.o
+
+# target to build an object file
+oop/Invoker.cpp.o:
+	$(MAKE) -f CMakeFiles/Stock.dir/build.make CMakeFiles/Stock.dir/oop/Invoker.cpp.o
+.PHONY : oop/Invoker.cpp.o
+
+oop/Invoker.i: oop/Invoker.cpp.i
+
+.PHONY : oop/Invoker.i
+
+# target to preprocess a source file
+oop/Invoker.cpp.i:
+	$(MAKE) -f CMakeFiles/Stock.dir/build.make CMakeFiles/Stock.dir/oop/Invoker.cpp.i
+.PHONY : oop/Invoker.cpp.i
+
+oop/Invoker.s: oop/Invoker.cpp.s
+
+.PHONY : oop/Invoker.s
+
+# target to generate assembly for a file
+oop/Invoker.cpp.s:
+	$(MAKE) -f CMakeFiles/Stock.dir/build.make CMakeFiles/Stock.dir/oop/Invoker.cpp.s
+.PHONY : oop/Invoker.cpp.s
+
+oop/OpStock.o: oop/OpStock.cpp.o
+
+.PHONY : oop/OpStock.o
+
+# target to build an object file
+oop/OpStock.cpp.o:
+	$(MAKE) -f CMakeFiles/Stock.dir/build.make CMakeFiles/Stock.dir/oop/OpStock.cpp.o
+.PHONY : oop/OpStock.cpp.o
+
+oop/OpStock.i: oop/OpStock.cpp.i
+
+.PHONY : oop/OpStock.i
+
+# target to preprocess a source file
+oop/OpStock.cpp.i:
+	$(MAKE) -f CMakeFiles/Stock.dir/build.make CMakeFiles/Stock.dir/oop/OpStock.cpp.i
+.PHONY : oop/OpStock.cpp.i
+
+oop/OpStock.s: oop/OpStock.cpp.s
+
+.PHONY : oop/OpStock.s
+
+# target to generate assembly for a file
+oop/OpStock.cpp.s:
+	$(MAKE) -f CMakeFiles/Stock.dir/build.make CMakeFiles/Stock.dir/oop/OpStock.cpp.s
+.PHONY : oop/OpStock.cpp.s
+
+oop/Stock.o: oop/Stock.cpp.o
+
+.PHONY : oop/Stock.o
+
+# target to build an object file
+oop/Stock.cpp.o:
+	$(MAKE) -f CMakeFiles/Stock.dir/build.make CMakeFiles/Stock.dir/oop/Stock.cpp.o
+.PHONY : oop/Stock.cpp.o
+
+oop/Stock.i: oop/Stock.cpp.i
+
+.PHONY : oop/Stock.i
+
+# target to preprocess a source file
+oop/Stock.cpp.i:
+	$(MAKE) -f CMakeFiles/Stock.dir/build.make CMakeFiles/Stock.dir/oop/Stock.cpp.i
+.PHONY : oop/Stock.cpp.i
+
+oop/Stock.s: oop/Stock.cpp.s
+
+.PHONY : oop/Stock.s
+
+# target to generate assembly for a file
+oop/Stock.cpp.s:
+	$(MAKE) -f CMakeFiles/Stock.dir/build.make CMakeFiles/Stock.dir/oop/Stock.cpp.s
+.PHONY : oop/Stock.cpp.s
+
+sys/FunctionTest.o: sys/FunctionTest.cpp.o
+
+.PHONY : sys/FunctionTest.o
+
+# target to build an object file
+sys/FunctionTest.cpp.o:
+	$(MAKE) -f CMakeFiles/FunctionTest.dir/build.make CMakeFiles/FunctionTest.dir/sys/FunctionTest.cpp.o
+.PHONY : sys/FunctionTest.cpp.o
+
+sys/FunctionTest.i: sys/FunctionTest.cpp.i
+
+.PHONY : sys/FunctionTest.i
+
+# target to preprocess a source file
+sys/FunctionTest.cpp.i:
+	$(MAKE) -f CMakeFiles/FunctionTest.dir/build.make CMakeFiles/FunctionTest.dir/sys/FunctionTest.cpp.i
+.PHONY : sys/FunctionTest.cpp.i
+
+sys/FunctionTest.s: sys/FunctionTest.cpp.s
+
+.PHONY : sys/FunctionTest.s
+
+# target to generate assembly for a file
+sys/FunctionTest.cpp.s:
+	$(MAKE) -f CMakeFiles/FunctionTest.dir/build.make CMakeFiles/FunctionTest.dir/sys/FunctionTest.cpp.s
+.PHONY : sys/FunctionTest.cpp.s
+
+sys/MemCommitTest.o: sys/MemCommitTest.cpp.o
+
+.PHONY : sys/MemCommitTest.o
+
+# target to build an object file
+sys/MemCommitTest.cpp.o:
+	$(MAKE) -f CMakeFiles/MemCommitTest.dir/build.make CMakeFiles/MemCommitTest.dir/sys/MemCommitTest.cpp.o
+.PHONY : sys/MemCommitTest.cpp.o
+
+sys/MemCommitTest.i: sys/MemCommitTest.cpp.i
+
+.PHONY : sys/MemCommitTest.i
+
+# target to preprocess a source file
+sys/MemCommitTest.cpp.i:
+	$(MAKE) -f CMakeFiles/MemCommitTest.dir/build.make CMakeFiles/MemCommitTest.dir/sys/MemCommitTest.cpp.i
+.PHONY : sys/MemCommitTest.cpp.i
+
+sys/MemCommitTest.s: sys/MemCommitTest.cpp.s
+
+.PHONY : sys/MemCommitTest.s
+
+# target to generate assembly for a file
+sys/MemCommitTest.cpp.s:
+	$(MAKE) -f CMakeFiles/MemCommitTest.dir/build.make CMakeFiles/MemCommitTest.dir/sys/MemCommitTest.cpp.s
+.PHONY : sys/MemCommitTest.cpp.s
+
+sys/ThreadScheduleTest.o: sys/ThreadScheduleTest.cpp.o
+
+.PHONY : sys/ThreadScheduleTest.o
+
+# target to build an object file
+sys/ThreadScheduleTest.cpp.o:
+	$(MAKE) -f CMakeFiles/ThreadScheduleTest.dir/build.make CMakeFiles/ThreadScheduleTest.dir/sys/ThreadScheduleTest.cpp.o
+.PHONY : sys/ThreadScheduleTest.cpp.o
+
+sys/ThreadScheduleTest.i: sys/ThreadScheduleTest.cpp.i
+
+.PHONY : sys/ThreadScheduleTest.i
+
+# target to preprocess a source file
+sys/ThreadScheduleTest.cpp.i:
+	$(MAKE) -f CMakeFiles/ThreadScheduleTest.dir/build.make CMakeFiles/ThreadScheduleTest.dir/sys/ThreadScheduleTest.cpp.i
+.PHONY : sys/ThreadScheduleTest.cpp.i
+
+sys/ThreadScheduleTest.s: sys/ThreadScheduleTest.cpp.s
+
+.PHONY : sys/ThreadScheduleTest.s
+
+# target to generate assembly for a file
+sys/ThreadScheduleTest.cpp.s:
+	$(MAKE) -f CMakeFiles/ThreadScheduleTest.dir/build.make CMakeFiles/ThreadScheduleTest.dir/sys/ThreadScheduleTest.cpp.s
+.PHONY : sys/ThreadScheduleTest.cpp.s
 
 type/ArrayTest.o: type/ArrayTest.cpp.o
 
@@ -335,6 +602,33 @@ type/Pointer.s: type/Pointer.cpp.s
 type/Pointer.cpp.s:
 	$(MAKE) -f CMakeFiles/pointerTest.dir/build.make CMakeFiles/pointerTest.dir/type/Pointer.cpp.s
 .PHONY : type/Pointer.cpp.s
+
+type/ReferenceTest.o: type/ReferenceTest.cpp.o
+
+.PHONY : type/ReferenceTest.o
+
+# target to build an object file
+type/ReferenceTest.cpp.o:
+	$(MAKE) -f CMakeFiles/ReferenceTest.dir/build.make CMakeFiles/ReferenceTest.dir/type/ReferenceTest.cpp.o
+.PHONY : type/ReferenceTest.cpp.o
+
+type/ReferenceTest.i: type/ReferenceTest.cpp.i
+
+.PHONY : type/ReferenceTest.i
+
+# target to preprocess a source file
+type/ReferenceTest.cpp.i:
+	$(MAKE) -f CMakeFiles/ReferenceTest.dir/build.make CMakeFiles/ReferenceTest.dir/type/ReferenceTest.cpp.i
+.PHONY : type/ReferenceTest.cpp.i
+
+type/ReferenceTest.s: type/ReferenceTest.cpp.s
+
+.PHONY : type/ReferenceTest.s
+
+# target to generate assembly for a file
+type/ReferenceTest.cpp.s:
+	$(MAKE) -f CMakeFiles/ReferenceTest.dir/build.make CMakeFiles/ReferenceTest.dir/type/ReferenceTest.cpp.s
+.PHONY : type/ReferenceTest.cpp.s
 
 type/StructTest.o: type/StructTest.cpp.o
 
@@ -417,36 +711,120 @@ type/Uu.cpp.s:
 	$(MAKE) -f CMakeFiles/structTest.dir/build.make CMakeFiles/structTest.dir/type/Uu.cpp.s
 .PHONY : type/Uu.cpp.s
 
+type/extern/Main.o: type/extern/Main.cpp.o
+
+.PHONY : type/extern/Main.o
+
+# target to build an object file
+type/extern/Main.cpp.o:
+	$(MAKE) -f CMakeFiles/externTest.dir/build.make CMakeFiles/externTest.dir/type/extern/Main.cpp.o
+.PHONY : type/extern/Main.cpp.o
+
+type/extern/Main.i: type/extern/Main.cpp.i
+
+.PHONY : type/extern/Main.i
+
+# target to preprocess a source file
+type/extern/Main.cpp.i:
+	$(MAKE) -f CMakeFiles/externTest.dir/build.make CMakeFiles/externTest.dir/type/extern/Main.cpp.i
+.PHONY : type/extern/Main.cpp.i
+
+type/extern/Main.s: type/extern/Main.cpp.s
+
+.PHONY : type/extern/Main.s
+
+# target to generate assembly for a file
+type/extern/Main.cpp.s:
+	$(MAKE) -f CMakeFiles/externTest.dir/build.make CMakeFiles/externTest.dir/type/extern/Main.cpp.s
+.PHONY : type/extern/Main.cpp.s
+
+type/extern/Support.o: type/extern/Support.cpp.o
+
+.PHONY : type/extern/Support.o
+
+# target to build an object file
+type/extern/Support.cpp.o:
+	$(MAKE) -f CMakeFiles/externTest.dir/build.make CMakeFiles/externTest.dir/type/extern/Support.cpp.o
+.PHONY : type/extern/Support.cpp.o
+
+type/extern/Support.i: type/extern/Support.cpp.i
+
+.PHONY : type/extern/Support.i
+
+# target to preprocess a source file
+type/extern/Support.cpp.i:
+	$(MAKE) -f CMakeFiles/externTest.dir/build.make CMakeFiles/externTest.dir/type/extern/Support.cpp.i
+.PHONY : type/extern/Support.cpp.i
+
+type/extern/Support.s: type/extern/Support.cpp.s
+
+.PHONY : type/extern/Support.s
+
+# target to generate assembly for a file
+type/extern/Support.cpp.s:
+	$(MAKE) -f CMakeFiles/externTest.dir/build.make CMakeFiles/externTest.dir/type/extern/Support.cpp.s
+.PHONY : type/extern/Support.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
-	@echo "... ArrayTest"
 	@echo "... rebuild_cache"
-	@echo "... MemCommitTest"
+	@echo "... edit_cache"
 	@echo "... pointerTest"
-	@echo "... structTest"
+	@echo "... MemCommitTest"
 	@echo "... TypeTest"
+	@echo "... ArrayTest"
+	@echo "... FunctionTest"
+	@echo "... ReferenceTest"
+	@echo "... structTest"
+	@echo "... ThreadScheduleTest"
 	@echo "... helloworld"
+	@echo "... Jill"
 	@echo "... Hellocpp"
+	@echo "... Stock"
+	@echo "... externTest"
 	@echo "... Hellocpp.o"
 	@echo "... Hellocpp.i"
 	@echo "... Hellocpp.s"
+	@echo "... clib/CCTypeTest.o"
+	@echo "... clib/CCTypeTest.i"
+	@echo "... clib/CCTypeTest.s"
 	@echo "... hello/HelloWorld.o"
 	@echo "... hello/HelloWorld.i"
 	@echo "... hello/HelloWorld.s"
-	@echo "... mem/MemCommitTest.o"
-	@echo "... mem/MemCommitTest.i"
-	@echo "... mem/MemCommitTest.s"
+	@echo "... namespace/Jill.o"
+	@echo "... namespace/Jill.i"
+	@echo "... namespace/Jill.s"
+	@echo "... oop/Invoker.o"
+	@echo "... oop/Invoker.i"
+	@echo "... oop/Invoker.s"
+	@echo "... oop/OpStock.o"
+	@echo "... oop/OpStock.i"
+	@echo "... oop/OpStock.s"
+	@echo "... oop/Stock.o"
+	@echo "... oop/Stock.i"
+	@echo "... oop/Stock.s"
+	@echo "... sys/FunctionTest.o"
+	@echo "... sys/FunctionTest.i"
+	@echo "... sys/FunctionTest.s"
+	@echo "... sys/MemCommitTest.o"
+	@echo "... sys/MemCommitTest.i"
+	@echo "... sys/MemCommitTest.s"
+	@echo "... sys/ThreadScheduleTest.o"
+	@echo "... sys/ThreadScheduleTest.i"
+	@echo "... sys/ThreadScheduleTest.s"
 	@echo "... type/ArrayTest.o"
 	@echo "... type/ArrayTest.i"
 	@echo "... type/ArrayTest.s"
 	@echo "... type/Pointer.o"
 	@echo "... type/Pointer.i"
 	@echo "... type/Pointer.s"
+	@echo "... type/ReferenceTest.o"
+	@echo "... type/ReferenceTest.i"
+	@echo "... type/ReferenceTest.s"
 	@echo "... type/StructTest.o"
 	@echo "... type/StructTest.i"
 	@echo "... type/StructTest.s"
@@ -456,6 +834,12 @@ help:
 	@echo "... type/Uu.o"
 	@echo "... type/Uu.i"
 	@echo "... type/Uu.s"
+	@echo "... type/extern/Main.o"
+	@echo "... type/extern/Main.i"
+	@echo "... type/extern/Main.s"
+	@echo "... type/extern/Support.o"
+	@echo "... type/extern/Support.i"
+	@echo "... type/extern/Support.s"
 .PHONY : help
 
 

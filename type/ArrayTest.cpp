@@ -3,6 +3,8 @@
 //
 
 #include <iostream>
+#include <array>
+
 
 using namespace std;
 
@@ -57,6 +59,18 @@ int main(){
 
     arrN -= len;
     delete []arrN;
+
+
+    // ------------- 模板类array
+
+    using namespace std;
+    array<int, 5> array1;
+    array<int, 5> array2 = {1,2,3,4,5};
+
+    for(int i=0;i<array1.size();i++){
+        array1[i] = i;
+    }
+
 
 
 }

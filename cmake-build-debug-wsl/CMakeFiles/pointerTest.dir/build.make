@@ -60,15 +60,15 @@ include CMakeFiles/pointerTest.dir/flags.make
 CMakeFiles/pointerTest.dir/type/Pointer.cpp.o: CMakeFiles/pointerTest.dir/flags.make
 CMakeFiles/pointerTest.dir/type/Pointer.cpp.o: ../type/Pointer.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/project/my/lern-cpp/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/pointerTest.dir/type/Pointer.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pointerTest.dir/type/Pointer.cpp.o -c /mnt/d/project/my/lern-cpp/type/Pointer.cpp
+	/usr/bin/g++-10  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pointerTest.dir/type/Pointer.cpp.o -c /mnt/d/project/my/lern-cpp/type/Pointer.cpp
 
 CMakeFiles/pointerTest.dir/type/Pointer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pointerTest.dir/type/Pointer.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/project/my/lern-cpp/type/Pointer.cpp > CMakeFiles/pointerTest.dir/type/Pointer.cpp.i
+	/usr/bin/g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/project/my/lern-cpp/type/Pointer.cpp > CMakeFiles/pointerTest.dir/type/Pointer.cpp.i
 
 CMakeFiles/pointerTest.dir/type/Pointer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pointerTest.dir/type/Pointer.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/project/my/lern-cpp/type/Pointer.cpp -o CMakeFiles/pointerTest.dir/type/Pointer.cpp.s
+	/usr/bin/g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/project/my/lern-cpp/type/Pointer.cpp -o CMakeFiles/pointerTest.dir/type/Pointer.cpp.s
 
 # Object files for target pointerTest
 pointerTest_OBJECTS = \

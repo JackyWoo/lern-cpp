@@ -1,1 +1,1 @@
-/usr/bin/g++  -g   CMakeFiles/ArrayTest.dir/type/ArrayTest.cpp.o  -o ArrayTest 
+/usr/bin/g++-10  -pthread -g   CMakeFiles/ArrayTest.dir/type/ArrayTest.cpp.o CMakeFiles/ArrayTest.dir/clib/CCTypeTest.cpp.o  -o ArrayTest 

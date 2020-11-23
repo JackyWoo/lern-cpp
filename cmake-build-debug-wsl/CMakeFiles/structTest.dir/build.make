@@ -60,28 +60,28 @@ include CMakeFiles/structTest.dir/flags.make
 CMakeFiles/structTest.dir/type/StructTest.cpp.o: CMakeFiles/structTest.dir/flags.make
 CMakeFiles/structTest.dir/type/StructTest.cpp.o: ../type/StructTest.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/project/my/lern-cpp/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/structTest.dir/type/StructTest.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/structTest.dir/type/StructTest.cpp.o -c /mnt/d/project/my/lern-cpp/type/StructTest.cpp
+	/usr/bin/g++-10  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/structTest.dir/type/StructTest.cpp.o -c /mnt/d/project/my/lern-cpp/type/StructTest.cpp
 
 CMakeFiles/structTest.dir/type/StructTest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/structTest.dir/type/StructTest.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/project/my/lern-cpp/type/StructTest.cpp > CMakeFiles/structTest.dir/type/StructTest.cpp.i
+	/usr/bin/g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/project/my/lern-cpp/type/StructTest.cpp > CMakeFiles/structTest.dir/type/StructTest.cpp.i
 
 CMakeFiles/structTest.dir/type/StructTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/structTest.dir/type/StructTest.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/project/my/lern-cpp/type/StructTest.cpp -o CMakeFiles/structTest.dir/type/StructTest.cpp.s
+	/usr/bin/g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/project/my/lern-cpp/type/StructTest.cpp -o CMakeFiles/structTest.dir/type/StructTest.cpp.s
 
 CMakeFiles/structTest.dir/type/Uu.cpp.o: CMakeFiles/structTest.dir/flags.make
 CMakeFiles/structTest.dir/type/Uu.cpp.o: ../type/Uu.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/project/my/lern-cpp/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/structTest.dir/type/Uu.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/structTest.dir/type/Uu.cpp.o -c /mnt/d/project/my/lern-cpp/type/Uu.cpp
+	/usr/bin/g++-10  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/structTest.dir/type/Uu.cpp.o -c /mnt/d/project/my/lern-cpp/type/Uu.cpp
 
 CMakeFiles/structTest.dir/type/Uu.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/structTest.dir/type/Uu.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/project/my/lern-cpp/type/Uu.cpp > CMakeFiles/structTest.dir/type/Uu.cpp.i
+	/usr/bin/g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/project/my/lern-cpp/type/Uu.cpp > CMakeFiles/structTest.dir/type/Uu.cpp.i
 
 CMakeFiles/structTest.dir/type/Uu.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/structTest.dir/type/Uu.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/project/my/lern-cpp/type/Uu.cpp -o CMakeFiles/structTest.dir/type/Uu.cpp.s
+	/usr/bin/g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/project/my/lern-cpp/type/Uu.cpp -o CMakeFiles/structTest.dir/type/Uu.cpp.s
 
 # Object files for target structTest
 structTest_OBJECTS = \

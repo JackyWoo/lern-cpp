@@ -57,27 +57,27 @@ include CMakeFiles/MemCommitTest.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/MemCommitTest.dir/flags.make
 
-CMakeFiles/MemCommitTest.dir/mem/MemCommitTest.cpp.o: CMakeFiles/MemCommitTest.dir/flags.make
-CMakeFiles/MemCommitTest.dir/mem/MemCommitTest.cpp.o: ../mem/MemCommitTest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/project/my/lern-cpp/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MemCommitTest.dir/mem/MemCommitTest.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MemCommitTest.dir/mem/MemCommitTest.cpp.o -c /mnt/d/project/my/lern-cpp/mem/MemCommitTest.cpp
+CMakeFiles/MemCommitTest.dir/sys/MemCommitTest.cpp.o: CMakeFiles/MemCommitTest.dir/flags.make
+CMakeFiles/MemCommitTest.dir/sys/MemCommitTest.cpp.o: ../sys/MemCommitTest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/project/my/lern-cpp/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MemCommitTest.dir/sys/MemCommitTest.cpp.o"
+	/usr/bin/g++-10  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MemCommitTest.dir/sys/MemCommitTest.cpp.o -c /mnt/d/project/my/lern-cpp/sys/MemCommitTest.cpp
 
-CMakeFiles/MemCommitTest.dir/mem/MemCommitTest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MemCommitTest.dir/mem/MemCommitTest.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/project/my/lern-cpp/mem/MemCommitTest.cpp > CMakeFiles/MemCommitTest.dir/mem/MemCommitTest.cpp.i
+CMakeFiles/MemCommitTest.dir/sys/MemCommitTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MemCommitTest.dir/sys/MemCommitTest.cpp.i"
+	/usr/bin/g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/project/my/lern-cpp/sys/MemCommitTest.cpp > CMakeFiles/MemCommitTest.dir/sys/MemCommitTest.cpp.i
 
-CMakeFiles/MemCommitTest.dir/mem/MemCommitTest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MemCommitTest.dir/mem/MemCommitTest.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/project/my/lern-cpp/mem/MemCommitTest.cpp -o CMakeFiles/MemCommitTest.dir/mem/MemCommitTest.cpp.s
+CMakeFiles/MemCommitTest.dir/sys/MemCommitTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MemCommitTest.dir/sys/MemCommitTest.cpp.s"
+	/usr/bin/g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/project/my/lern-cpp/sys/MemCommitTest.cpp -o CMakeFiles/MemCommitTest.dir/sys/MemCommitTest.cpp.s
 
 # Object files for target MemCommitTest
 MemCommitTest_OBJECTS = \
-"CMakeFiles/MemCommitTest.dir/mem/MemCommitTest.cpp.o"
+"CMakeFiles/MemCommitTest.dir/sys/MemCommitTest.cpp.o"
 
 # External object files for target MemCommitTest
 MemCommitTest_EXTERNAL_OBJECTS =
 
-MemCommitTest: CMakeFiles/MemCommitTest.dir/mem/MemCommitTest.cpp.o
+MemCommitTest: CMakeFiles/MemCommitTest.dir/sys/MemCommitTest.cpp.o
 MemCommitTest: CMakeFiles/MemCommitTest.dir/build.make
 MemCommitTest: CMakeFiles/MemCommitTest.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/d/project/my/lern-cpp/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable MemCommitTest"

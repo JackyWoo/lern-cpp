@@ -1,4 +1,4 @@
-/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=/usr/bin/gcc -DCMAKE_CXX_COMPILER=/usr/bin/g++ -G "CodeBlocks - Unix Makefiles" /mnt/d/project/my/lern-cpp
+/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=/usr/bin/gcc-10 -DCMAKE_CXX_COMPILER=/usr/bin/g++-10 -G "CodeBlocks - Unix Makefiles" /mnt/d/project/my/lern-cpp
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /mnt/d/project/my/lern-cpp/cmake-build-debug-wsl

@@ -1,1 +1,1 @@
-/usr/bin/g++  -g   CMakeFiles/Hellocpp.dir/Hellocpp.cpp.o  -o Hellocpp 
+/usr/bin/g++-10  -pthread -g   CMakeFiles/Hellocpp.dir/Hellocpp.cpp.o  -o Hellocpp 

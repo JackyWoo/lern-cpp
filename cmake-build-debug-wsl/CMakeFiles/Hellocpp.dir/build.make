@@ -60,15 +60,15 @@ include CMakeFiles/Hellocpp.dir/flags.make
 CMakeFiles/Hellocpp.dir/Hellocpp.cpp.o: CMakeFiles/Hellocpp.dir/flags.make
 CMakeFiles/Hellocpp.dir/Hellocpp.cpp.o: ../Hellocpp.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/project/my/lern-cpp/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Hellocpp.dir/Hellocpp.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Hellocpp.dir/Hellocpp.cpp.o -c /mnt/d/project/my/lern-cpp/Hellocpp.cpp
+	/usr/bin/g++-10  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Hellocpp.dir/Hellocpp.cpp.o -c /mnt/d/project/my/lern-cpp/Hellocpp.cpp
 
 CMakeFiles/Hellocpp.dir/Hellocpp.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Hellocpp.dir/Hellocpp.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/project/my/lern-cpp/Hellocpp.cpp > CMakeFiles/Hellocpp.dir/Hellocpp.cpp.i
+	/usr/bin/g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/project/my/lern-cpp/Hellocpp.cpp > CMakeFiles/Hellocpp.dir/Hellocpp.cpp.i
 
 CMakeFiles/Hellocpp.dir/Hellocpp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Hellocpp.dir/Hellocpp.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/project/my/lern-cpp/Hellocpp.cpp -o CMakeFiles/Hellocpp.dir/Hellocpp.cpp.s
+	/usr/bin/g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/project/my/lern-cpp/Hellocpp.cpp -o CMakeFiles/Hellocpp.dir/Hellocpp.cpp.s
 
 # Object files for target Hellocpp
 Hellocpp_OBJECTS = \

@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/MemCommitTest.dir/mem/MemCommitTest.cpp.o"
+  "CMakeFiles/MemCommitTest.dir/sys/MemCommitTest.cpp.o"
   "MemCommitTest"
   "MemCommitTest.pdb"
 )

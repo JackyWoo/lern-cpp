@@ -60,15 +60,15 @@ include CMakeFiles/TypeTest.dir/flags.make
 CMakeFiles/TypeTest.dir/type/TypeTest.cpp.o: CMakeFiles/TypeTest.dir/flags.make
 CMakeFiles/TypeTest.dir/type/TypeTest.cpp.o: ../type/TypeTest.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/project/my/lern-cpp/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TypeTest.dir/type/TypeTest.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TypeTest.dir/type/TypeTest.cpp.o -c /mnt/d/project/my/lern-cpp/type/TypeTest.cpp
+	/usr/bin/g++-10  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TypeTest.dir/type/TypeTest.cpp.o -c /mnt/d/project/my/lern-cpp/type/TypeTest.cpp
 
 CMakeFiles/TypeTest.dir/type/TypeTest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TypeTest.dir/type/TypeTest.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/project/my/lern-cpp/type/TypeTest.cpp > CMakeFiles/TypeTest.dir/type/TypeTest.cpp.i
+	/usr/bin/g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/project/my/lern-cpp/type/TypeTest.cpp > CMakeFiles/TypeTest.dir/type/TypeTest.cpp.i
 
 CMakeFiles/TypeTest.dir/type/TypeTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TypeTest.dir/type/TypeTest.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/project/my/lern-cpp/type/TypeTest.cpp -o CMakeFiles/TypeTest.dir/type/TypeTest.cpp.s
+	/usr/bin/g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/project/my/lern-cpp/type/TypeTest.cpp -o CMakeFiles/TypeTest.dir/type/TypeTest.cpp.s
 
 # Object files for target TypeTest
 TypeTest_OBJECTS = \
