@@ -1,1 +1,0 @@
-/usr/bin/g++-10  -pthread -g   CMakeFiles/MemCommitTest.dir/sys/MemCommitTest.cpp.o  -o MemCommitTest 

@@ -1,1 +1,0 @@
-/usr/bin/g++-10  -pthread -g   CMakeFiles/TypeTest.dir/type/TypeTest.cpp.o  -o TypeTest 

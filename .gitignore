@@ -34,5 +34,5 @@
 *.app
 
 # debug
-cmake-build-debug/
-cmake-build-debug-wsl/
+cmake-build-debug/*
+cmake-build-debug-wsl/*
