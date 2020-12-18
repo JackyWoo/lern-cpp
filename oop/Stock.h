@@ -22,6 +22,8 @@ private:
 public:
     Stock();
 
+    Stock(const Stock& other);
+
     Stock(const std::string &company);
 
     Stock(const std::string &company, long shares, double shareVal, double totalVal);

@@ -3,8 +3,9 @@
 //
 #include <iostream>
 #include <climits>
+#include <typeinfo>
 
-int main(){
+void minMaxTest(){
 
     using namespace std;
 
@@ -77,4 +78,44 @@ int main(){
 
     string s2 = "a";
     string s3;
+}
+
+
+class Object {
+
+};
+
+/**
+ * 判断类型是否相同
+ */
+void typeInfoTest(){
+    using namespace std;
+
+    //获取一个普通变量的类型信息
+    int n = 100;
+    const type_info &nInfo = typeid(n);
+    cout<<nInfo.name()<<" | "<<nInfo.hash_code()<<endl;
+
+    Object obj();
+    Object * objPtr = new Object;
+    Object * objPtr2 = new Object;
+
+    const type_info & classInfo = typeid(Object);
+    const type_info & objInfo = typeid(obj);
+    const type_info & objPtrInfo = typeid(*objPtr);
+    const type_info & objPtrInfo2 = typeid(*objPtr2);
+
+    cout<<objInfo.name()<<" | "<<objInfo.hash_code()<<endl;
+    cout<<objPtrInfo.name()<<" | "<<objPtrInfo.hash_code()<<endl;
+    cout<<objPtrInfo2.name()<<" | "<<objPtrInfo2.hash_code()<<endl;
+
+    cout<<(objInfo == classInfo)<<endl;
+    cout<<(objInfo == objPtrInfo)<<endl;
+    cout<<(classInfo == objPtrInfo)<<endl;
+    cout<<(objPtrInfo2 == objPtrInfo)<<endl;
+}
+
+int main(){
+    minMaxTest();
+    typeInfoTest();
 }

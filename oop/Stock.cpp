@@ -68,8 +68,17 @@ Stock::~Stock() {
     std::cout<<"destroy stock object" << std::endl;
 }
 
+
 Stock::Stock() {
     std::cout<<"construct stock object with no args" << std::endl;
+}
+
+Stock::Stock(const Stock& other) {
+    this->company = other.company;
+    this->totalVal = other.totalVal;
+    this->shares = other.shares;
+    this->shares = other.shares;
+    std::cout<<"invoke copy constructor" << std::endl;
 }
 
 Stock::Stock(const std::string &company) : company(company) {

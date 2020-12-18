@@ -1,8 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" serverName="WSL (27d91c4b-d369-4bc0-8a10-559b6bcbbb8c)" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
-      <paths name="WSL (2276c4e9-e3b3-4ce0-8a16-b547a17f78c3)">
+      <paths name="Remote GDB Server (6dc90faf-ab60-4379-8cc7-9da901b8be58)">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="Remote GDB Server (cc00104f-51a3-4041-a76f-1d1d5624ff38)">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="Remote-118 (8a7f632f-28ac-4419-b5ad-3e0945a58b05)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/data1/home/wujianchao/project/uplpad/lern-cpp" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath path="D:\project\my\lern-cpp\cmake-build-debug-wsl" />
+            <excludedPath path="/data1/home/wujianchao/project/uplpad/lern-cpp/cmake-build-debug-wsl" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-wsl" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-wsl" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="Remote-164 (8f049621-d655-40b4-99b6-6f79d5760f20)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/tmp/tmp.y1dp9hZYbO" local="$PROJECT_DIR$" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-wsl" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-wsl" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-remote118" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-remote118" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="WSL (27d91c4b-d369-4bc0-8a10-559b6bcbbb8c)">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
