@@ -1,6 +1,6 @@
-project(learn-cpp)
-
 cmake_minimum_required(VERSION 3.16)
+
+project(learn-cpp)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_FLAGS_DEBUG )

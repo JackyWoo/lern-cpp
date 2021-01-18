@@ -4,7 +4,6 @@
 
 #include <iostream>
 
-using namespace std;
 
 template <typename T>
 void function(T&& t);
@@ -80,13 +79,13 @@ void function(T&& t) {
     /**
      * forward：用于实现完美转发
      */
-    otherDef(forward<T>(t));
+    otherDef(std::forward<T>(t));
 //    otherDef(t);
 }
 
 template <typename R>
 void function2(R& r){
-    cout << "lvalue\n";
+    std::cout << "lvalue\n";
 }
 
 /**
@@ -94,22 +93,22 @@ void function2(R& r){
  * @param r
  */
 void function3(int && r){
-    cout << "rvalue\n";
+    std::cout << "rvalue\n";
 }
 
 /**
  */
 void function4(const int & r){
-    cout << "rvalue\n";
+    std::cout << "rvalue\n";
 }
 
 //重载被调用函数，查看完美转发的效果
 template <typename T>
 void otherDef(T & t) {
-    cout << "lvalue\n";
+    std::cout << "lvalue\n";
 }
 
 template <typename T>
 void otherDef(const T & t) {
-    cout << "rvalue\n";
+    std::cout << "rvalue\n";
 }
