@@ -48,4 +48,13 @@ int main(){
     // seg fault
 //    int a = queue.top();
 
+    std::vector<String> cluster_nodes = {"1"};
+    std::vector<String> user_initialized_nodes = {"1"};
+    std::vector<String> must_finished_nodes;
+    std::set_intersection(cluster_nodes.cbegin(), cluster_nodes.cend(),
+                          user_initialized_nodes.cbegin(),
+                          user_initialized_nodes.cend(),
+                          std::insert_iterator<std::vector<String>>(must_finished_nodes, must_finished_nodes.begin()));
+    cout<<must_finished_nodes.size()<<endl;
+
 }
