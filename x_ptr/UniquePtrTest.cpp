@@ -8,24 +8,24 @@
 
 using String = std::string;
 
-void test() {
-
+void test()
+{
     //对象指针
     std::unique_ptr<String> ptr1(new String("123"));
 
     std::unique_ptr<String> ptr2;
 
-//    std::cout << *ptr1 << std::endl;
-//    std::cout << ptr1->size() << std::endl;
+    //    std::cout << *ptr1 << std::endl;
+    //    std::cout << ptr1->size() << std::endl;
 
     //ptr1指向的内容转移给ptr4后，ptr1就指向了空
     std::unique_ptr<String> ptr4 = std::move(ptr1);
 
-//    std::cout << *ptr1 << std::endl;
+    //    std::cout << *ptr1 << std::endl;
     std::cout << *ptr4 << std::endl;
 
     //释放unique_ptr，但是内存空间不会被释放
-    String *ptr3 = ptr4.release();
+    String * ptr3 = ptr4.release();
     std::cout << *ptr3 << std::endl;
 
 
@@ -37,26 +37,26 @@ void test() {
     p[0] = 0;
 
     //STL
-
 }
 
 /**
  *
  */
-void restTest() {
-    String *ptr1 = new String("123");
+void restTest()
+{
+    String * ptr1 = new String("123");
     std::unique_ptr<String> uniqPtr(ptr1);
 
     std::cout << *ptr1 << std::endl;
 
-    String *ptr2 = new String("abc");
+    String * ptr2 = new String("abc");
     /**
      * rest 将 ptr1清空，并把uniqPtr内容替换
      */
     uniqPtr.reset(ptr2);
 
     std::cout << *uniqPtr << std::endl;
-//    std::cout << *ptr1 << std::endl;
+    //    std::cout << *ptr1 << std::endl;
     std::cout << *ptr2 << std::endl;
 
     /**
@@ -67,33 +67,38 @@ void restTest() {
 }
 
 //TODO
-void releaseTest() {
-    int *ptr1 = new int(123);
+void releaseTest()
+{
+    int * ptr1 = new int(123);
     std::unique_ptr<int> uniqPtr(ptr1);
 
     std::cout << *uniqPtr << std::endl;
 
-    int *ptr2 = uniqPtr.release();
+    int * ptr2 = uniqPtr.release();
 
     /**
      * uniqPtr 释放后将不能在访问，否则segfault
      */
-//    std::cout << *uniqPtr << std::endl;
+    //    std::cout << *uniqPtr << std::endl;
     std::cout << *ptr1 << std::endl;
     std::cout << *ptr2 << std::endl;
 }
 
-void test10() {
+void test10()
+{
     using namespace std;
     std::unique_ptr<int> p5(new int);
     *p5 = 10;
     // p 接收 p5 释放的堆内存
-    int *p = p5.release();
+    int * p = p5.release();
     cout << *p << endl;
     //判断 p5 是否为空指针
-    if (p5) {
+    if (p5)
+    {
         cout << "p5 is not nullptr" << endl;
-    } else {
+    }
+    else
+    {
         cout << "p5 is nullptr" << endl;
     }
     std::unique_ptr<int> p6;
@@ -102,9 +107,10 @@ void test10() {
     cout << *p6 << endl;
 }
 
-int main() {
+int main()
+{
     test();
-//    restTest();
-//    releaseTest();
-//    test10();
+    //    restTest();
+    //    releaseTest();
+    //    test10();
 }

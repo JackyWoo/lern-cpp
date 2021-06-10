@@ -68,6 +68,7 @@ add_executable(ThreadPoolTest queue/FixedThreadPool.cpp queue/FixedThreadPoolTes
 #--------------  x_ptr --------------
 
 add_executable(ResourceReleaseTest x_ptr/ResourceReleaseTest.cpp  oop/Stock.h  oop/Stock.cpp)
+add_executable(SegFaultTest x_ptr/SegFaultTest.cpp )
 
 
 add_executable(UniquePtrTest x_ptr/UniquePtrTest.cpp)
@@ -94,6 +95,7 @@ add_executable(DefaultTemplateArgName cpp11/DefaultTemplateArgName.cpp)
 add_executable(InitObjectTest cpp11/InitObjectTest.cpp)
 add_executable(MoveConstructorTest cpp11/MoveConstructorTest.cpp)
 add_executable(ArgDeliverTest cpp11/PerfectForwarding.cpp)
+add_executable(ConstexprTest cpp11/ConstexprTest.cpp)
 
 
 #--------------  operator --------------
@@ -109,7 +111,8 @@ add_executable(FooTest template/FooTest.cpp template/Foo.cpp)
 
 #--------------  exception --------------
 
-add_executable(ExceptionTest exception/ExceptionTest.cpp)
+add_executable(ExceptionTest exception/ExceptionTest.cpp exception/Exception.cpp)
+add_executable(ThrowExceptionTest exception/ThrowExceptionTest.cpp exception/Exception.cpp)
 
 
 #--------------  exception --------------
@@ -119,10 +122,20 @@ add_executable(DynamicCastTest cast/DynamicCastTest.cpp)
 
 #--------------  ThreadPoolTest --------------
 
-add_executable(ThreadPoolTest2 threadpool/KeyedThreadPoolTest.cpp threadpool/KeyedThreadPool.cpp threadpool/getNumberOfPhysicalCPUCores.cpp)
+add_executable(GroupedThreadPool threadpool/GroupedThreadPool.cpp threadpool/getNumberOfPhysicalCPUCores.cpp)
+add_executable(GroupedThreadPoolTest threadpool/GroupedThreadPoolTest.cpp threadpool/GroupedThreadPool.cpp)
 
 #--------------  time --------------
 
 add_executable(ChronoTest time/ChronoTest.cpp)
+
+#------------- file ----------------
+
+add_executable(FileStreamTest file/FileStreamTest.cpp)
+
+
+#------------- lock ----------------
+
+add_executable(LockTest lock/LockTest.cpp)
 
 

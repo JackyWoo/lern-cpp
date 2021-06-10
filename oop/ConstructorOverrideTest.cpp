@@ -13,9 +13,16 @@ protected:
     int m_age;
 public:
     People(char *, int);
+    ~People();
 };
 
-People::People(char *name, int age) : m_name(name), m_age(age) {}
+People::People(char *name, int age) : m_name(name), m_age(age) {
+    cout<<"construct People\n";
+}
+
+People::~People() {
+    cout<<"destruct People\n";
+}
 
 //派生类Student
 class Student : public People {
@@ -23,12 +30,18 @@ private:
     float m_score;
 public:
     Student(char *name, int age, float score);
-
+    ~Student();
     void display();
 };
 
 //People(name, age)就是调用基类的构造函数
-Student::Student(char *name, int age, float score) : People(name, age), m_score(score) {}
+Student::Student(char *name, int age, float score) : People(name, age), m_score(score) {
+    cout<<"construct Student\n";
+}
+
+Student::~Student() {
+    cout<<"destruct Student\n";
+}
 
 void Student::display() {
     cout << m_name << "的年龄是" << m_age << "，成绩是" << m_score << "。" << endl;

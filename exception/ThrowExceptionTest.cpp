@@ -3,10 +3,10 @@
 //
 
 #include <exception>
-#include <string>
 #include <iostream>
+#include <string>
 
-std::string getCurrentExceptionMessage(bool with_stacktrace)
+std::string getCurrentExceptionMessage()
 {
     try
     {
@@ -14,6 +14,18 @@ std::string getCurrentExceptionMessage(bool with_stacktrace)
     }
     catch (const std::exception & e)
     {
-        std::out << <<std::endl;
+        std::cout << "lala" << std::endl;
+    }
+}
+
+int main()
+{
+    try
+    {
+        getCurrentExceptionMessage();
+    }
+    catch (...)
+    {
+        std::cout << "caught exception" << std::endl;
     }
 }

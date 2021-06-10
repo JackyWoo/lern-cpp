@@ -15,6 +15,7 @@ struct Person {
  */
 Person & incAge(Person &p) {
     p.age ++;
+    return p;
 }
 
 int main() {

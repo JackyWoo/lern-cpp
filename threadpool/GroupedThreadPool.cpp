@@ -1,67 +1,47 @@
-#include "KeyedThreadPool.h"
-#include "getNumberOfPhysicalCPUCores.h"
+#include "GroupedThreadPool.h"
+#include <exception>
+#include <iostream>
 
-#include <type_traits>
-
-
-namespace DB
+class Exception : public std::exception
 {
-    class Exception {
-    private:
-        const char * msg = nullptr;
-    public:
-        explicit Exception(const char* msg);
-        ~Exception(){
-            delete msg;
-        }
-    };
+public:
+    explicit Exception(const char * what) { this->what_ = what; }
+    const char * what() const noexcept override { return what_; }
+    ~Exception() override { delete what_; }
 
-    Exception::Exception(const char *msg) {
-        msg = msg;
-    }
-}
-
-
-//const String KEY_RANDOM = "key_random";
+private:
+    char const * what_;
+};
 
 template <typename Thread>
-KeyedThreadPoolImpl<Thread>::KeyedThreadPoolImpl()
-    : KeyedThreadPoolImpl(getNumberOfPhysicalCPUCores())
-{
-}
-
-
-template <typename Thread>
-KeyedThreadPoolImpl<Thread>::KeyedThreadPoolImpl(size_t max_threads_)
-    : KeyedThreadPoolImpl(max_threads_, std::min<size_t>(max_threads_, 1), 10000)
+GroupedThreadPoolImpl<Thread>::GroupedThreadPoolImpl(size_t max_threads_)
+    : GroupedThreadPoolImpl(max_threads_, std::min<size_t>(max_threads_, 1), 10000)
 {
 }
 
 template <typename Thread>
-KeyedThreadPoolImpl<Thread>::KeyedThreadPoolImpl(size_t max_threads_, size_t max_free_threads_, size_t queue_size_, bool shutdown_on_exception_)
-    : max_threads(max_threads_)
-    , max_free_threads(max_free_threads_)
-    , queue_size(queue_size_)
-    , shutdown_on_exception(shutdown_on_exception_)
+GroupedThreadPoolImpl<Thread>::GroupedThreadPoolImpl(
+    size_t max_threads_, size_t max_free_threads_, size_t queue_size_, bool shutdown_on_exception_)
+    : max_threads(max_threads_), max_free_threads(max_free_threads_), queue_size(queue_size_), shutdown_on_exception(shutdown_on_exception_)
 {
 }
 
 template <typename Thread>
-void KeyedThreadPoolImpl<Thread>::setMaxThreads(size_t value)
+void GroupedThreadPoolImpl<Thread>::setMaxThreads(size_t value)
 {
     std::lock_guard lock(mutex);
     max_threads = value;
 }
 
 template <typename Thread>
-void KeyedThreadPoolImpl<Thread>::setMaxFreeThreads(size_t value)
+void GroupedThreadPoolImpl<Thread>::setMaxFreeThreads(size_t value)
 {
     std::lock_guard lock(mutex);
     max_free_threads = value;
 }
 
 template <typename Thread>
-void KeyedThreadPoolImpl<Thread>::setQueueSize(size_t value)
+void GroupedThreadPoolImpl<Thread>::setQueueSize(size_t value)
 {
     std::lock_guard lock(mutex);
     queue_size = value;
@@ -70,10 +50,9 @@ void KeyedThreadPoolImpl<Thread>::setQueueSize(size_t value)
 
 template <typename Thread>
 template <typename ReturnType>
-ReturnType KeyedThreadPoolImpl<Thread>::scheduleImpl(Job job, String key, std::optional<uint64_t> wait_microseconds)
+ReturnType GroupedThreadPoolImpl<Thread>::scheduleImpl(Job job, String group, std::optional<uint64_t> wait_microseconds)
 {
-    auto on_error = [&]
-    {
+    auto on_error = [&] {
         if constexpr (std::is_same_v<ReturnType, void>)
         {
             if (first_exception)
@@ -82,7 +61,7 @@ ReturnType KeyedThreadPoolImpl<Thread>::scheduleImpl(Job job, String key, std::o
                 std::swap(exception, first_exception);
                 std::rethrow_exception(exception);
             }
-            throw DB::Exception("Cannot schedule a task");
+            throw Exception("Cannot schedule a task");
         }
         else
             return false;
@@ -93,7 +72,7 @@ ReturnType KeyedThreadPoolImpl<Thread>::scheduleImpl(Job job, String key, std::o
 
         auto pred = [this] { return !queue_size || scheduled_jobs < queue_size || shutdown; };
 
-        if (wait_microseconds)  /// Check for optional. Condition is true if the optional is set and the value is zero.
+        if (wait_microseconds) /// Check for optional. Condition is true if the optional is set and the value is zero.
         {
             if (!job_finished.wait_for(lock, std::chrono::microseconds(*wait_microseconds), pred))
                 return on_error();
@@ -104,7 +83,7 @@ ReturnType KeyedThreadPoolImpl<Thread>::scheduleImpl(Job job, String key, std::o
         if (shutdown)
             return on_error();
 
-        jobs.emplace_back(std::move(job), key);
+        jobs.emplace_back(std::move(job), group);
         ++scheduled_jobs;
 
         if (threads.size() < std::min(max_threads, scheduled_jobs))
@@ -134,25 +113,25 @@ ReturnType KeyedThreadPoolImpl<Thread>::scheduleImpl(Job job, String key, std::o
 }
 
 template <typename Thread>
-void KeyedThreadPoolImpl<Thread>::scheduleOrThrowOnError(Job job, String key)
+void GroupedThreadPoolImpl<Thread>::scheduleOrThrowOnError(Job job, String group)
 {
-    scheduleImpl<void>(std::move(job), key, std::nullopt);
+    scheduleImpl<void>(std::move(job), group, std::nullopt);
 }
 
 template <typename Thread>
-bool KeyedThreadPoolImpl<Thread>::trySchedule(Job job, String key, uint64_t wait_microseconds) noexcept
+bool GroupedThreadPoolImpl<Thread>::trySchedule(Job job, String group, uint64_t wait_microseconds) noexcept
 {
-    return scheduleImpl<bool>(std::move(job), key, wait_microseconds);
+    return scheduleImpl<bool>(std::move(job), group, wait_microseconds);
 }
 
 template <typename Thread>
-void KeyedThreadPoolImpl<Thread>::scheduleOrThrow(Job job, String key, uint64_t wait_microseconds)
+void GroupedThreadPoolImpl<Thread>::scheduleOrThrow(Job job, String group, uint64_t wait_microseconds)
 {
-    scheduleImpl<void>(std::move(job), key, wait_microseconds);
+    scheduleImpl<void>(std::move(job), group, wait_microseconds);
 }
 
 template <typename Thread>
-void KeyedThreadPoolImpl<Thread>::wait()
+void GroupedThreadPoolImpl<Thread>::wait()
 {
     {
         std::unique_lock lock(mutex);
@@ -168,13 +147,13 @@ void KeyedThreadPoolImpl<Thread>::wait()
 }
 
 template <typename Thread>
-KeyedThreadPoolImpl<Thread>::~KeyedThreadPoolImpl()
+GroupedThreadPoolImpl<Thread>::~GroupedThreadPoolImpl()
 {
     finalize();
 }
 
 template <typename Thread>
-void KeyedThreadPoolImpl<Thread>::finalize()
+void GroupedThreadPoolImpl<Thread>::finalize()
 {
     {
         std::unique_lock lock(mutex);
@@ -187,26 +166,24 @@ void KeyedThreadPoolImpl<Thread>::finalize()
         thread.join();
 
     threads.clear();
-    keys_in_fly.clear();
+    groups_in_fly.clear();
     jobs.clear();
 }
 
 template <typename Thread>
-size_t KeyedThreadPoolImpl<Thread>::active() const
+size_t GroupedThreadPoolImpl<Thread>::active() const
 {
     std::unique_lock lock(mutex);
     return scheduled_jobs;
 }
 
 template <typename Thread>
-void KeyedThreadPoolImpl<Thread>::worker(typename std::list<Thread>::iterator thread_it)
+void GroupedThreadPoolImpl<Thread>::worker(typename std::list<Thread>::iterator thread_it)
 {
-    /// local thread
-
     while (true)
     {
         Job job;
-        String job_key;
+        String job_group;
 
         bool need_shutdown = false;
 
@@ -219,17 +196,17 @@ void KeyedThreadPoolImpl<Thread>::worker(typename std::list<Thread>::iterator th
             {
                 /// find job
                 bool find = false;
-                for(auto itr = jobs.begin(); itr != jobs.end(); itr++)
+                for (auto itr = jobs.begin(); itr != jobs.end(); itr++)
                 {
-                    if(itr->key == DB::KEY_RANDOM || !keys_in_fly.contains(itr->key))
+                    if (itr->group == DB::GROUP_RANDOM || !groups_in_fly.contains(itr->group))
                     {
                         find = true;
                         job = std::move(itr->job);
-                        job_key = itr->key;
+                        job_group = itr->group;
 
-                        if(itr->key != DB::KEY_RANDOM)
+                        if (itr->group != DB::GROUP_RANDOM)
                         {
-                            keys_in_fly.insert(itr->key);
+                            groups_in_fly.insert(itr->group);
                         }
 
                         jobs.erase(itr);
@@ -237,16 +214,20 @@ void KeyedThreadPoolImpl<Thread>::worker(typename std::list<Thread>::iterator th
                     }
                 }
 
-                if(!find)
+                if (!find)
                 {
                     /// simply finish the thread
+                    std::string msg = "all job groups is already on the fly, finish this thread and will schedule on another thread. current thread size " + std::to_string(threads.size());
+                    std::cout << msg << std::endl;
+                    thread_it->detach();
+                    threads.erase(thread_it);
                     return;
                 }
-
             }
             else
             {
                 /// shutdown is true, simply finish the thread.
+                std::cout << "should shutdown\n";
                 return;
             }
         }
@@ -255,6 +236,8 @@ void KeyedThreadPoolImpl<Thread>::worker(typename std::list<Thread>::iterator th
         {
             try
             {
+                std::string msg = "Executing job with group " + job_group;
+                //                std::cout<<msg<<std::endl;
 
                 job();
                 /// job should be reset before decrementing scheduled_jobs to
@@ -274,9 +257,10 @@ void KeyedThreadPoolImpl<Thread>::worker(typename std::list<Thread>::iterator th
                     if (shutdown_on_exception)
                         shutdown = true;
                     --scheduled_jobs;
+                    std::cout<<"--scheduled_jobs, job error scheduled jobs "<< scheduled_jobs<<std::endl;
 
-                    /// erase key
-                    keys_in_fly.erase(job_key);
+                    /// erase group
+                    groups_in_fly.erase(job_group);
                 }
 
                 job_finished.notify_all();
@@ -289,11 +273,15 @@ void KeyedThreadPoolImpl<Thread>::worker(typename std::list<Thread>::iterator th
             std::unique_lock lock(mutex);
             --scheduled_jobs;
 
-            /// erase key
-            keys_in_fly.erase(job_key);
+            /// erase group
+            groups_in_fly.erase(job_group);
 
             if (threads.size() > scheduled_jobs + max_free_threads)
             {
+                String msg = "--scheduled_jobs , thread size : " + std::to_string(threads.size()) + ",scheduled_jobs:" + std::to_string(scheduled_jobs)
+                    + ",max_free_threads:" + std::to_string(max_free_threads);
+                std::cout << msg<<std::endl;
+                std::cout << "because thread size finish this thread"<<std::endl;
                 thread_it->detach();
                 threads.erase(thread_it);
                 job_finished.notify_all();
@@ -305,6 +293,4 @@ void KeyedThreadPoolImpl<Thread>::worker(typename std::list<Thread>::iterator th
     }
 }
 
-template class KeyedThreadPoolImpl<std::thread>;
-
-
+template class GroupedThreadPoolImpl<std::thread>;

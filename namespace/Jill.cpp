@@ -4,7 +4,7 @@
 #include <iostream>
 namespace Jill {
     double bucket(double n) {
-
+        return n;
     }
     double fetch = 1;
     struct Hill {

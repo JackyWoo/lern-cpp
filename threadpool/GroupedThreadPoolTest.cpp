@@ -8,7 +8,7 @@
 #include <mutex>
 #include <chrono>
 #include <random>
-#include "KeyedThreadPool.h"
+#include "GroupedThreadPool.h"
 
 
 struct TaskWithExecutionTime {
@@ -28,10 +28,11 @@ void print(std::priority_queue<TaskWithExecutionTime> &orderedTasks);
 int main() {
 
     const int task_size = 100;
-    const int task_key_size = 10;
-    const int thread_pool_size = 3;
+    const int task_group_size = 5;
+    const int thread_pool_size = 10;
 
-    KeyedThreadPool pool(thread_pool_size, thread_pool_size, 100);
+//    GroupedThreadPool pool(thread_pool_size, thread_pool_size, 100);
+    GroupedThreadPool pool(thread_pool_size);
 
     using namespace std;
     using MicroTime = chrono::time_point<chrono::system_clock, chrono::microseconds>;
@@ -45,18 +46,26 @@ int main() {
     const long start_time = chrono::time_point_cast<chrono::microseconds>(chrono::system_clock::now()).time_since_epoch().count();
 
     for (int task_id = 0; task_id < task_size; task_id++) {
+//    for (int a = 0; a < task_size; a++) {
+//        int task_id = 1;
         pool.scheduleOrThrow(
-                [&pool, start_time, task_id, &mutex, &orderedTasks] {
+                [ start_time, task_id, &mutex, &orderedTasks] {
+                    std::string msg = "Executing job " + std::to_string(task_id) +" with group " + std::to_string(task_id % task_group_size);
+                    std::cout<<msg<<std::endl;
                     /// task start time
                     MicroTime tp = chrono::time_point_cast<chrono::microseconds>(chrono::system_clock::now());
                     long now = tp.time_since_epoch().count();
 
                     /// sleep random time to mock task execution
                     static std::default_random_engine generator;
-                    static std::uniform_int_distribution<int> distribution(0, 100 * 1000);
+                    static std::uniform_int_distribution<int> distribution(0, 10);
 //                    auto dice = [&distribution, &generator] { return distribution(generator); };
                     static auto dice = bind(distribution, generator);
-                    std::this_thread::sleep_for(std::chrono::microseconds(dice()));
+                    std::this_thread::sleep_for(std::chrono::milliseconds (dice() * 100));
+
+                    if(task_id == 10){
+                        std::this_thread::sleep_for(std::chrono::milliseconds (1000));
+                    }
 
                     /// record task execution order
                     {
@@ -64,7 +73,7 @@ int main() {
                         orderedTasks.push({task_id,  now - start_time});
                     }
                 },
-                to_string(task_id % task_key_size));
+                to_string(task_id % task_group_size));
     }
 
     /// wait task done
@@ -75,25 +84,25 @@ int main() {
 
     bool task_executed_in_order = true;
 
-//    /// <bucket_num, previous_task_id>
-//    std::map<int, int> keyed_last_task;
-//    while (!orderedTasks.empty()) {
-//        TaskWithExecutionTime tmp = orderedTasks.top();
-//        int key_bucket_num = tmp.task_id % task_key_size;
-//
-//        if (keyed_last_task.contains(key_bucket_num)) {
-//            if (keyed_last_task.find(key_bucket_num)->second > tmp.task_id) {
-//                task_executed_in_order = false;
-//                break;
-//            }
-//
-//            keyed_last_task.emplace(key_bucket_num, tmp.task_id);
-//        } else {
-//            keyed_last_task.emplace(key_bucket_num, tmp.task_id);
-//        }
-//
-//        orderedTasks.pop();
-//    }
+    /// <bucket_num, previous_task_id>
+    std::map<int, int> group_last_task;
+    while (!orderedTasks.empty()) {
+        TaskWithExecutionTime tmp = orderedTasks.top();
+        int key_bucket_num = tmp.task_id % task_group_size;
+
+        if (group_last_task.contains(key_bucket_num)) {
+            if (group_last_task.find(key_bucket_num)->second > tmp.task_id) {
+                task_executed_in_order = false;
+                break;
+            }
+
+            group_last_task.emplace(key_bucket_num, tmp.task_id);
+        } else {
+            group_last_task.emplace(key_bucket_num, tmp.task_id);
+        }
+
+        orderedTasks.pop();
+    }
 
     cout << task_executed_in_order << endl;
     print(orderedTasks);

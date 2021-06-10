@@ -10,7 +10,7 @@ class Foo {
 public:
     Foo() { std::cout << "Foo Default constructor\n"; }
     Foo(const Foo &) { std::cout << "Foo Copy\n"; }
-    Foo(Foo &&) { std::cout << "Foo Move\n"; }
+    Foo(Foo &&)  noexcept { std::cout << "Foo Move\n"; }
 };
 
 std::aligned_storage<sizeof(Foo)> contents;

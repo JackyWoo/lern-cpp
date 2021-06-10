@@ -96,7 +96,7 @@ void typeInfoTest(){
     const type_info &nInfo = typeid(n);
     cout<<nInfo.name()<<" | "<<nInfo.hash_code()<<endl;
 
-    Object obj();
+    Object obj;
     Object * objPtr = new Object;
     Object * objPtr2 = new Object;
 

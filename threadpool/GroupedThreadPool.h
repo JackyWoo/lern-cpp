@@ -1,48 +1,49 @@
 #pragma once
 
-#include <cstdint>
-#include <thread>
-#include <mutex>
 #include <condition_variable>
+#include <cstdint>
 #include <functional>
-#include <queue>
 #include <list>
-#include <set>
+#include <mutex>
 #include <optional>
+#include <queue>
+#include <set>
+#include <thread>
+#include <string>
+#include <string_view>
 
 
 namespace DB
 {
-    const std::string KEY_RANDOM = "_key_random_";
+    const std::string GROUP_RANDOM = "_group_random_";
 }
 
 
-/** Very simple thread pool similar to boost::threadpool.
+/** Very simple thread pool similar to boost::ThreadPool.
   * Advantages:
-  * - catches exceptions and rethrows on wait.
-  * - Job with same key will be executed in scheduled order.
+  * - Job with same group will be executed in order.
   *
   */
 template <typename Thread>
-class KeyedThreadPoolImpl
+class GroupedThreadPoolImpl
 {
 public:
     using Job = std::function<void()>;
     using String = std::string;
 
     /// default num_threads is 1
-    KeyedThreadPoolImpl();
+    GroupedThreadPoolImpl();
 
     /// default num_threads is 1
-    explicit KeyedThreadPoolImpl(size_t max_threads_);
+    explicit GroupedThreadPoolImpl(size_t max_threads_);
 
-    KeyedThreadPoolImpl(size_t max_threads_, size_t max_free_threads_, size_t queue_size_, bool shutdown_on_exception_ = true);
+    GroupedThreadPoolImpl(size_t max_threads_, size_t max_free_threads_, size_t queue_size_, bool shutdown_on_exception_ = true);
 
-    void scheduleOrThrowOnError(Job job, String key = DB::KEY_RANDOM);
+    void scheduleOrThrowOnError(Job job, String group = DB::GROUP_RANDOM);
 
-    bool trySchedule(Job job, String key = DB::KEY_RANDOM, uint64_t wait_microseconds = 0) noexcept;
+    bool trySchedule(Job job, String group = DB::GROUP_RANDOM, uint64_t wait_microseconds = 0) noexcept;
 
-    void scheduleOrThrow(Job job, String key = DB::KEY_RANDOM, uint64_t wait_microseconds = 0);
+    void scheduleOrThrow(Job job, String group = DB::GROUP_RANDOM, uint64_t wait_microseconds = 0);
 
     /// Wait for all currently active jobs to be done.
     /// You may call schedule and wait many times in arbitrary order.
@@ -52,7 +53,7 @@ public:
 
     /// Waits for all threads. Doesn't rethrow exceptions (use 'wait' method to rethrow exceptions).
     /// You should not destroy object while calling schedule or wait methods from another threads.
-    ~KeyedThreadPoolImpl();
+    ~GroupedThreadPoolImpl();
 
     /// Returns number of running and scheduled jobs.
     size_t active() const;
@@ -62,7 +63,6 @@ public:
     void setQueueSize(size_t value);
 
 private:
-
     mutable std::mutex mutex;
     std::condition_variable job_finished;
     std::condition_variable new_job_or_shutdown;
@@ -75,25 +75,23 @@ private:
     bool shutdown = false;
     const bool shutdown_on_exception = true;
 
-    struct JobWithKey
+    struct JobWithGroup
     {
         Job job;
-        String key;
+        String group;
 
-        JobWithKey(Job job_, String key_)
-            : job(job_), key(key_) {}
-
+        JobWithGroup(Job job_, String group_) : job(job_), group(group_) { }
     };
 
-    std::list<JobWithKey> jobs;
+    std::list<JobWithGroup> jobs;
     std::list<Thread> threads;
     std::exception_ptr first_exception;
 
-    std::set<String> keys_in_fly;
+    std::set<String> groups_in_fly;
 
 
     template <typename ReturnType>
-    ReturnType scheduleImpl(Job job, String key, std::optional<uint64_t> wait_microseconds);
+    ReturnType scheduleImpl(Job job, String group, std::optional<uint64_t> wait_microseconds);
 
     void worker(typename std::list<Thread>::iterator thread_it);
 
@@ -101,4 +99,4 @@ private:
 };
 
 /// ThreadPool with std::thread for threads.
-using KeyedThreadPool = KeyedThreadPoolImpl<std::thread>;
+using GroupedThreadPool = GroupedThreadPoolImpl<std::thread>;
